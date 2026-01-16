@@ -1,0 +1,312 @@
+/* White background - remove all margins/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+.hero {
+  background-color: #ffffff;
+  position: relative;
+  padding-top: 4rem; /* Account for fixed navbar */
+  min-height: 100vh;
+  overflow: hidden; /* CRITICAL - stops pattern from bleeding into tokenomics */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center;
+}
+
+/* Create denser pattern covering full width - Preserve aspect ratios */
+/* Target: 6-7 images horizontally, 5-6 rows, full page coverage */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Changed from min-height: 200vh - contained within hero */
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+  
+  /* Explicit positioning with preserved aspect ratios */
+  /* Each image: 100px width, auto height to preserve natural proportions */
+  /* Total: 45 images covering full width (1800px+) */
+  background-image: 
+    /* Row 1 - 8 images across */
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    /* Row 2 - 7 images offset */
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    /* Row 3 - 8 images */
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    /* Row 4 - 7 images offset */
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    /* Row 5 - 8 images */
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    /* Row 6 - 7 images offset */
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png'),
+    url('assets/mog-bags-252126f5.png'),
+    url('assets/mog-lockedin-048d658b.png'),
+    url('assets/mog-printer-1-04275e91.png');
+    
+  /* FIX: Use width + auto height to preserve aspect ratios (not squished) */
+  background-size: 
+    100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto,
+    100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto,
+    100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto,
+    100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto,
+    100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto,
+    100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto, 100px auto;
+    
+  background-repeat: no-repeat;
+  
+  /* Tighter spacing: 250px between centers, extended to right edge */
+  /* Row 1: 8 images at 0, 250, 500, 750, 1000, 1250, 1500, 1750 */
+  /* Row 2: 7 images offset at 125, 375, 625, 875, 1125, 1375, 1625 */
+  /* Row 3: 8 images at 0, 250, 500, 750, 1000, 1250, 1500, 1750 */
+  /* Row 4: 7 images offset at 125, 375, 625, 875, 1125, 1375, 1625 */
+  /* Row 5: 8 images at 0, 250, 500, 750, 1000, 1250, 1500, 1750 */
+  /* Row 6: 7 images offset at 125, 375, 625, 875, 1125, 1375, 1625 */
+  background-position:
+    /* Row 1 - 8 images (added rightmost) */
+    0px 50px, 250px 50px, 500px 50px, 750px 50px, 1000px 50px, 1250px 50px, 1500px 50px, 1750px 50px,
+    /* Row 2 - 7 images offset (added rightmost) */
+    125px 225px, 375px 225px, 625px 225px, 875px 225px, 1125px 225px, 1375px 225px, 1625px 225px,
+    /* Row 3 - 8 images (added rightmost) */
+    0px 400px, 250px 400px, 500px 400px, 750px 400px, 1000px 400px, 1250px 400px, 1500px 400px, 1750px 400px,
+    /* Row 4 - 7 images offset (added rightmost) */
+    125px 575px, 375px 575px, 625px 575px, 875px 575px, 1125px 575px, 1375px 575px, 1625px 575px,
+    /* Row 5 - 8 images (added rightmost) */
+    0px 750px, 250px 750px, 500px 750px, 750px 750px, 1000px 750px, 1250px 750px, 1500px 750px, 1750px 750px,
+    /* Row 6 - 7 images offset (added rightmost) */
+    125px 925px, 375px 925px, 625px 925px, 875px 925px, 1125px 925px, 1375px 925px, 1625px 925px;
+}
+
+/* Dark panel with 60% opacity */
+.hero-content-card {
+  background: rgba(42, 52, 64, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Social icons styling */
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+/* Contract address styling */
+.contract-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.contract-address {
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+/* Tokenomics section - animated gradient, no cat pattern */
+.tokenomics-section {
+  position: relative;
+  margin: 0 !important;
+  padding-bottom: 2rem;
+  z-index: 10; /* Above hero background */
+  overflow: hidden; /* Ensure no pattern bleeds through */
+  
+  /* Smooth animated gradient */
+  background: linear-gradient(
+    90deg,
+    #b0f0d0 0%,
+    #8fc9c0 25%,
+    #9993e3 50%,
+    #8fc9c0 75%,
+    #b0f0d0 100%
+  );
+  background-size: 200% 100%;
+  
+  /* 8-second smooth loop */
+  animation: gradient-slide 8s ease-in-out infinite;
+  
+  /* Performance boost */
+  will-change: background-position;
+  transform: translateZ(0);
+}
+
+/* Keyframe animation for gradient movement */
+@keyframes gradient-slide {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tokenomics-section {
+    animation: none;
+    background: linear-gradient(to right, #b0f0d0, #9993e3);
+  }
+}
+
+/* Slower animation on mobile */
+@media (max-width: 768px) {
+  .tokenomics-section {
+    animation: gradient-slide 12s ease-in-out infinite;
+  }
+}
+
+/* Remove any white bars or gaps */
+body > * {
+  margin-bottom: 0;
+}
+
+/* Ensure dropdown works on hover */
+.navbar .menu-horizontal > li:hover .dropdown-content,
+.navbar .menu-horizontal > li .dropdown.dropdown-hover:hover .dropdown-content,
+.navbar .menu-horizontal > li .dropdown:focus .dropdown-content,
+.navbar .menu-horizontal > li .dropdown:focus-within .dropdown-content,
+.navbar .menu-horizontal > li details[open] .dropdown-content {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix dropdown positioning in navbar */
+.navbar .menu-horizontal > li {
+  position: relative;
+}
+
+.navbar .menu-horizontal > li .dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  min-width: 200px;
+  z-index: 9999 !important;
+  overflow: visible;
+}
+
+/* Ensure navbar doesn't clip dropdown */
+.navbar {
+  overflow: visible !important;
+}
+
+.navbar-center {
+  overflow: visible !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content-card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  
+  /* Mobile - fewer images, preserved aspect ratios, full coverage */
+  .hero::before {
+    background-size: 
+      70px auto, 70px auto, 70px auto, 70px auto,
+      70px auto, 70px auto, 70px auto, 70px auto,
+      70px auto, 70px auto, 70px auto, 70px auto,
+      70px auto, 70px auto, 70px auto, 70px auto,
+      70px auto, 70px auto, 70px auto, 70px auto,
+      70px auto, 70px auto, 70px auto, 70px auto;
+    
+    /* Mobile: 3-4 images horizontally, 180px spacing */
+    background-position:
+      /* Row 1 - 4 images */
+      0px 50px, 180px 50px, 360px 50px, 540px 50px,
+      /* Row 2 - 3 images offset */
+      90px 200px, 270px 200px, 450px 200px,
+      /* Row 3 - 4 images */
+      0px 350px, 180px 350px, 360px 350px, 540px 350px,
+      /* Row 4 - 3 images offset */
+      90px 500px, 270px 500px, 450px 500px,
+      /* Row 5 - 4 images */
+      0px 650px, 180px 650px, 360px 650px, 540px 650px,
+      /* Row 6 - 3 images offset */
+      90px 800px, 270px 800px, 450px 800px;
+  }
+}
